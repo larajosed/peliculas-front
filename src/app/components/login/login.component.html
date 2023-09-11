@@ -1,17 +1,33 @@
 <div class="container">
-    <h1 class="title1">Inicio de Sesión</h1>
-    <div class="abs-center">       
+  <h1 class="title1">Inicio de Sesión</h1>
+  <div class="abs-center">
     <form class="formIni">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text"></div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
+      <div id="error" class="alert alert-danger" role="alert" *ngIf="mostrarErrorLogin">
+        Datos incorrectos
       </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          [formControl]="email"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div id="emailHelp" class="form-text"></div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          [formControl]="contrasena"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <button type="button" class="btn btn-primary" (click)="onSave()">
+        Enviar
+      </button>
+    </form>
+  </div>
 </div>

@@ -13,3 +13,7 @@
 .formIni{
    max-width: 500px;   
 }
+
+#error{
+    width: 13em;
+}
