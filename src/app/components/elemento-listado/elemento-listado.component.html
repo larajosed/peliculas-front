@@ -1,0 +1,14 @@
+<div class="pelicula">
+      <div class="card h-100">
+        <div class="containerImg">
+          <img src="{{pelicula.imagen}}" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" >{{pelicula.nombre}}</h5>
+          <div class="puntuacion">Puntuacion: {{pelicula.puntuacion}}</div>         
+        </div>
+        <div class="card-footer">
+          <small class="text-muted" id="informacion" (click)="onClick()">Mas información</small>
+      </div>
+      </div>
+    </div>

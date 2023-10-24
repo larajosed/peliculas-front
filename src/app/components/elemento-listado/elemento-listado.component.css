@@ -1,0 +1,13 @@
+.containerImg{
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+/*     background-color: #F1F1F1; */
+    display: flex;
+}
+
+img{
+    max-width: 400px;
+    max-height: 400px;
+} 
