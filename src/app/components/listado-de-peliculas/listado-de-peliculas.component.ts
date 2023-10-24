@@ -1,26 +1,47 @@
 import { Component, Input } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
-import { UsuarioService } from 'src/app/service/usuario.service';
+import { Router } from '@angular/router';
+import { PeliculaService } from 'src/app/service/pelicula.service';
+
 
 @Component({
   selector: 'app-listado-de-peliculas',
   templateUrl: './listado-de-peliculas.component.html',
   styleUrls: ['./listado-de-peliculas.component.css'],
-  providers: [UsuarioService]
+ 
 })
 export class ListadoDePeliculasComponent {
-  email: any;
-  contrasena: any;
- 
+  @Input() pelicula: any;
+  datos: any;
+  lista: string[];
+  opcionSeleccionado: string  = '0';
+  verSeleccion: string        = '';
+  
 
-  constructor(private usuarioService: UsuarioService){
 
+  constructor(private peliculaService: PeliculaService,private router: Router){
+    this.lista = ["Aventura","Terror"]
+    this.verSeleccion = this.opcionSeleccionado;
   }
 
   ngOnInit(){
-    const user = JSON.parse(localStorage.getItem("user")!);
-    console.log(user.id);
+    const userId = JSON.parse(localStorage.getItem("user")!).id;
+    this.peliculaService.getPeliculasByUsuarioId(userId).subscribe({
+        next: (respuesta) =>{         
+         this.datos = respuesta;
+        }
+      })
+     }
 
+     aggPelicula(){
+      this.router.navigate(['/agregar-pelicula/'])
+    } 
+
+    capturar() {      
+      this.router.navigate(['/categoria-pelicula/',  this.opcionSeleccionado])
+      localStorage.setItem("categoria", this.opcionSeleccionado);
   }
-    
 }
+
+
+
+
