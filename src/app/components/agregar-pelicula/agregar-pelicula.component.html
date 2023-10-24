@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="containerFormulario">
+    <form class="formIni" method="post" enctype="multipart/form-data">
+        <h3 class="tittle1">Agregar nueva pelicula</h3>
+        <div class="mb-3">
+            <label class="form-label">Agrega el nombre de la pelicula</label>
+          <input type="name" class="form-control" [formControl]="nombre"  aria-describedby="nameHelp">         
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Agrega una descripción de la pelicula</label>
+            <textarea class="form-control"  rows="3" type="text" [formControl]="descripcion"></textarea>
+          </div>
+          <select class="form-select" [formControl]="puntuacion">
+            <option value="0" disabled selected>Agrega una puntuacion para la pelicula</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Selecciona una imagen</label>
+            <input class="file-input" multiple type="file" id="formFile" (change)="capturarFile($event)">
+          </div>
+          <select class="form-select" [formControl]="categoria">
+            <option value="0" disabled selected>Agrega una categoriapara la pelicula</option>
+            <option value="aventura">Aventura</option>
+            <option value="terror">Terror</option>
+          </select>
+        <button type="button" class="btn btn-primary" (click)="agregarPelicula()">Agregar</button>
+      </form>
+    </div>
+</div>
