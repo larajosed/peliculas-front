@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="pelicula">
+    <div class="card h-100" >
+      <div class="containerImg">
+        <button type="button" class="btn" data-bs-toggle="button" (click)="volverLista()">X</button>   
+        <img *ngIf="pelicula" src="{{pelicula.imagen}}" class="card-img-top" alt="PELICULA">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" *ngIf="pelicula">{{pelicula.nombre}}</h5> 
+        <div *ngIf="pelicula">Fecha de creacion: {{pelicula.fechaCreacion | date: 'shortDate'}}</div>
+    <div class="card-text" *ngIf="pelicula">Descripcion: {{pelicula.descripcion}} </div>
+    <div class="puntuacion" *ngIf="pelicula">Puntuacion: {{pelicula.puntuacion}}  </div>
+    <div class="categoria" *ngIf="pelicula">Categoria: {{pelicula.categoria}}</div>       
+      </div>     
+      
+      <div class="card-footer">
+        <small class="text-muted" *ngIf="pelicula">Ultima actualización {{pelicula.fechaUltimaModificacion | date: 'shortDate'}}</small>
+    </div>
+    </div>
+  </div>  
+</div>
+
+ 
+
+
+
+
+
+
