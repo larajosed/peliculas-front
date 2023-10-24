@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>Lista de Peliculas vistas</h3>
+  <div class="row row-cols-4 row-cols-md-4 g-4">
+    <app-elemento-listado
+      *ngFor="let pelicula of datos"
+      [pelicula]="pelicula"
+    ></app-elemento-listado>
+  </div>
+</div>
